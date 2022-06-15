@@ -1,5 +1,5 @@
 # demo:
-https://oleksagrzegorz.github.io/currency_coverter-react/
+https://oleksagrzegorz.github.io/currency_coverter-react
 
 
 # Getting Started with Create React App
