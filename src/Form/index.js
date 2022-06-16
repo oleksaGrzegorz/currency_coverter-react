@@ -69,9 +69,6 @@ export const Form = ({ calculateResult, result }) => {
         </strong>
       </fieldset>
       <button className="form__button">Convert</button>
-      <button type="reset" className="form__button">
-        Reset
-      </button>
     </form>
   );
 };
