@@ -4,7 +4,7 @@ import { useState } from "react";
 export const currencies = [
   {
     short: "USD",
-    name: "Dolar amerykanski",
+    name: "Dollar",
     rate: 4.7,
   },
 
