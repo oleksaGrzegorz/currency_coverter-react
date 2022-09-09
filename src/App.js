@@ -1,6 +1,8 @@
 import Form from "./Form";
 import Footer from "./Footer";
 import Container from "./Container";
+import Clock from "./Clock";
+
 import { useState } from "react";
 import { currencies } from "./Form/index.js";
 
@@ -16,11 +18,15 @@ function App() {
   };
 
   return (
+    
     <div className="App">
       <Container>
         <Form result={result} calculateResult={calculateResult} />
+        
       </Container>
+      <Clock />
       <Footer />
+  
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import "./style.css";
 import { useState } from "react";
 
+
 export const currencies = [
   {
     short: "USD",
@@ -28,6 +29,7 @@ export const Form = ({ calculateResult, result }) => {
     <form className="form" onSubmit={onFormSubmit}>
       <fieldset className="form__fieldset">
         <legend className="form__legend">Currency converter</legend>
+        
         <p>
           <label>
             <span className="form__labelText">Amount:</span>
@@ -72,5 +74,6 @@ export const Form = ({ calculateResult, result }) => {
     </form>
   );
 };
+
 
 export default Form;
