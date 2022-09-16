@@ -1,20 +1,8 @@
 import "./style.css";
 import { useState } from "react";
+import currencies from "../currencies";
 
 
-export const currencies = [
-  {
-    short: "USD",
-    name: "Dollar",
-    rate: 4.7,
-  },
-
-  {
-    short: "EUR",
-    name: "Euro",
-    rate: 4.6,
-  },
-];
 
 export const Form = ({ calculateResult, result }) => {
   const [currency, setCurrency] = useState(currencies[0].short);

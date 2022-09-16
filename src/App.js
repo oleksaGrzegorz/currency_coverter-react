@@ -2,9 +2,8 @@ import Form from "./Form";
 import Footer from "./Footer";
 import Container from "./Container";
 import Clock from "./Clock";
-
 import { useState } from "react";
-import { currencies } from "./Form/index.js";
+import currencies from "./currencies";
 
 function App() {
   const [result, setResult] = useState();
