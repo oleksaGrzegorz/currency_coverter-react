@@ -18,15 +18,12 @@ function App() {
   };
 
   return (
-    
     <div className="App">
+      <Clock />
       <Container>
         <Form result={result} calculateResult={calculateResult} />
-        
       </Container>
-      <Clock />
       <Footer />
-  
     </div>
   );
 }
