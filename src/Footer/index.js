@@ -3,7 +3,6 @@ import "./style.css";
 const Footer = () => (
   <footer className="footer">
     <div className="footer__container">
-      <p className="footer__text">
         <a
           className="footer__link"
           target="_blank"
@@ -23,7 +22,6 @@ const Footer = () => (
         >
           Icons8.com
         </a>
-      </p>
     </div>
   </footer>
 );
