@@ -47,7 +47,7 @@ const Form = ({ calculateResult, result }) => {
           </label>
         </p>
         You have:{" "}
-        <strong className="result">
+        <strong className="form__result">
           {result !== undefined && (
             <strong>
               {result.targetAmount.toFixed(2)} {result.currency}
