@@ -1,13 +1,10 @@
 .form {
   width: 800px;
-  margin: 0 auto;
-  background-image: url(money.jpg);
-  background-position: right 10px bottom 70px;
-  background-size: 170px;
-  background-repeat: no-repeat;
   background-color: white;
   border-radius: 5px;
   padding: 10px;
+  background-image: url(./background.jpg);
+  
 }
 
 .form__labelText {
