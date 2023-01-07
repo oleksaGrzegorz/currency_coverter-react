@@ -1,4 +1,4 @@
-import "./style.css";
+import { MainForm, LabelText, FormResult, Button, Fieldset,Legend, FormFieldInput, FormFieldSelect } from "./styled";
 import { useState } from "react";
 import currencies from "../currencies";
 
@@ -12,16 +12,15 @@ const Form = ({ calculateResult, result }) => {
   };
 
   return (
-    <form className="form" onSubmit={onFormSubmit}>
-      <fieldset className="form__fieldset">
-        <legend className="form__legend">Currency converter</legend>
+    <MainForm onSubmit={onFormSubmit}>
+      <Fieldset>
+        <Legend>Currency converter</Legend>
         <p>
           <label>
-            <span className="form__labelText">Amount:</span>
-            <input
+            <LabelText>Amount:</LabelText>
+            <FormFieldInput
               value={amount}
               onChange={({ target }) => setAmount(target.value)}
-              className="form__field"
               placeholder="Amount (PLN)"
               required
               type="number"
@@ -32,9 +31,8 @@ const Form = ({ calculateResult, result }) => {
         </p>
         <p>
           <label>
-            <span className="form__labelText">Convert to:</span>
-            <select
-              className="form__field"
+            <LabelText>Convert to:</LabelText>
+            <FormFieldSelect
               value={currency}
               onChange={({ target }) => setCurrency(target.value)}
             >
@@ -43,20 +41,20 @@ const Form = ({ calculateResult, result }) => {
                   {currency.name}
                 </option>
               ))}
-            </select>
+            </FormFieldSelect>
           </label>
         </p>
         You have:{" "}
-        <strong className="form__result">
+        <FormResult>
           {result !== undefined && (
             <strong>
               {result.targetAmount.toFixed(2)} {result.currency}
             </strong>
           )}
-        </strong>
-      </fieldset>
-      <button className="form__button">Convert</button>
-    </form>
+        </FormResult>
+      </Fieldset>
+      <Button>Convert</Button>
+    </MainForm>
   );
 };
 
