@@ -1,10 +1,10 @@
-import "./style.css";
+import { MainContainer } from "./styled";
 
 
 const Container = (props) => (
-    <div className="container">
+    <MainContainer>
         {props.children}
-    </div>
+    </MainContainer>
     
 );
 
