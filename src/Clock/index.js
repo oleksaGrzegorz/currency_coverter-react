@@ -6,7 +6,6 @@ const Clock = () => {
 
   return (
     <ClockContainer>
-      Today is
       {date}
     </ClockContainer>
   );

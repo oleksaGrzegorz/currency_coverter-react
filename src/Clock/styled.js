@@ -8,5 +8,5 @@ export const ClockContainer = styled.div`
   border-radius: 5px;
   color: white;
   text-align: center;
-  width: 300px;
+  width: 400px;
 `;
