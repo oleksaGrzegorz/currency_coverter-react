@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { ClockContainer } from "./styled";
 
 export const useCurrentDate = () => {
   const [date, setDate] = useState(new Date());
@@ -15,18 +14,6 @@ export const useCurrentDate = () => {
   }, []);
 
 
-return (
-  <ClockContainer>
-    {date.toLocaleString(undefined, {
-      weekday: "long",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    })}
-  </ClockContainer>
-);
+return date;
 
   };
