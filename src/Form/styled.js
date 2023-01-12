@@ -15,15 +15,15 @@ export const LabelText = styled.span`
 `;
 
 export const FormResult = styled.strong`
-  color: #2c3e50;
+  color: ${({ theme }) => theme.color.black};
   align-items: center;
 `;
 
 export const Button = styled.button`
   width: 100%;
   border: none;
-  background-color: #2c3e50;
-  color: white;
+  background-color: ${({ theme }) => theme.color.ceruleanBlue};
+  color: ${({ theme }) => theme.color.white};
   padding: 10px;
   border-radius: 10px;
 
@@ -39,8 +39,8 @@ export const Fieldset = styled.fieldset`
 `;
 
 export const Legend = styled.legend`
-  background-color: #2c3e50;
-  color: white;
+  background-color: ${({ theme }) => theme.color.ceruleanBlue};
+  color: ${({ theme }) => theme.color.white};
   border-radius: 10px;
   padding: 10px;
   width: 100%;
@@ -52,7 +52,7 @@ export const FormFieldSelect = styled.select`
   width: 100%;
   max-width: 300px;
   height: 50px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.color.white};
 `;
 
 export const FormFieldInput = styled.input`
@@ -60,5 +60,5 @@ export const FormFieldInput = styled.input`
   width: 100%;
   max-width: 300px;
   height: 50px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.color.white};
 `;
