@@ -1,15 +1,37 @@
-import { MainForm, LabelText, FormResult, Button, Fieldset,Legend, FormFieldInput, FormFieldSelect } from "./styled";
-import { useState } from "react";
-import currencies from "../currencies";
+import {
+  MainForm,
+  LabelText,
+  FormResult,
+  Button,
+  Fieldset,
+  Legend,
+  FormFieldInput,
+  FormFieldSelect,
+} from "./styled";
+import { useState, useEffect } from "react";
 
 const Form = ({ calculateResult, result }) => {
-  const [currency, setCurrency] = useState(currencies[0].short);
+  const [currency, setCurrency] = useState([]);
   const [amount, setAmount] = useState("");
+  const [currencies, setCurrencies] = useState([]);
 
   const onFormSubmit = (event) => {
     event.preventDefault();
     calculateResult(currency, amount);
   };
+
+  
+
+  useEffect(() => {
+    fetch("https://api.exchangerate.host/base=PLN")
+      .then((response) => response.json())
+      .then((data) => {
+        const currencyNames = Object.keys(data.rates);
+        setCurrencies(currencyNames);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
 
   return (
     <MainForm onSubmit={onFormSubmit}>
@@ -37,8 +59,8 @@ const Form = ({ calculateResult, result }) => {
               onChange={({ target }) => setCurrency(target.value)}
             >
               {currencies.map((currency) => (
-                <option key={currency.short} value={currency.short}>
-                  {currency.name}
+                <option key={currency} value={currency}>
+                  {currency}
                 </option>
               ))}
             </FormFieldSelect>
