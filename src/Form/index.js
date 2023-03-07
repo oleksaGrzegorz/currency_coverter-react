@@ -20,8 +20,6 @@ const Form = ({ calculateResult, result }) => {
     calculateResult(currency, amount);
   };
 
-  
-
   useEffect(() => {
     fetch("https://api.exchangerate.host/base=PLN")
       .then((response) => response.json())
@@ -31,7 +29,6 @@ const Form = ({ calculateResult, result }) => {
       })
       .catch((error) => console.error(error));
   }, []);
-
 
   return (
     <MainForm onSubmit={onFormSubmit}>
