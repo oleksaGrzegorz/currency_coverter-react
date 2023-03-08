@@ -10,10 +10,13 @@ import {
 } from "./styled";
 import { useState, useEffect } from "react";
 
-const Form = ({ calculateResult, result }) => {
+
+
+const Form = () => {
   const [currency, setCurrency] = useState([]);
   const [amount, setAmount] = useState("");
   const [currencies, setCurrencies] = useState([]);
+  const [result, setResult] = useState();
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -29,6 +32,15 @@ const Form = ({ calculateResult, result }) => {
       })
       .catch((error) => console.error(error));
   }, []);
+
+    
+  const calculateResult = (currency, amount) => {
+    const rate = currencies.find(({ short }) => short === currency).rate;
+    setResult({
+      targetAmount: amount / rate,
+      currency,
+    });
+  };
 
   return (
     <MainForm onSubmit={onFormSubmit}>
