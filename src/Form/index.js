@@ -24,8 +24,10 @@ const Form = () => {
     calculateResult(currency, amount);
   };
 
+  const API_URL = "https://api.exchangerate.host/latest?base=PLN";
+
   useEffect(() => {
-    fetch("https://api.exchangerate.host/latest?base=PLN")
+    fetch(API_URL)
       .then((response) => response.json())
       .then((data) => {
         const currencyNames = Object.keys(data.rates);
