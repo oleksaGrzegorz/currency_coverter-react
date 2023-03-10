@@ -39,9 +39,9 @@ const Form = () => {
 
     
   const calculateResult = (currency, amount) => {
-    const rate = currencies.find(({ short }) => short === currency).rate;
+    const rate = currencyRates[currency];
     setResult({
-      targetAmount: amount / rate,
+      targetAmount: amount * rate,
       currency,
     });
   };
