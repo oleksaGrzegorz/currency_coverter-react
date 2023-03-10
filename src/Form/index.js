@@ -83,7 +83,7 @@ const Form = () => {
         <FormResult>
           {result !== undefined && (
             <strong>
-              {result.targetAmount.toFixed(2)} {result.currency}
+              {amount} PLN =  {result.targetAmount.toFixed(2)} {result.currency}
             </strong>
           )}
         </FormResult>
