@@ -13,10 +13,11 @@ import { useState, useEffect } from "react";
 
 
 const Form = () => {
-  const [currency, setCurrency] = useState([]);
+  const [currency, setCurrency] = useState("");
   const [amount, setAmount] = useState("");
   const [currencies, setCurrencies] = useState([]);
   const [result, setResult] = useState();
+  const [currencyRates, setCurrencyRates] = useState({});
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -24,14 +25,17 @@ const Form = () => {
   };
 
   useEffect(() => {
-    fetch("https://api.exchangerate.host/base=PLN")
+    fetch("https://api.exchangerate.host/latest?base=PLN")
       .then((response) => response.json())
       .then((data) => {
         const currencyNames = Object.keys(data.rates);
         setCurrencies(currencyNames);
+        setCurrency(currencyNames[0]);
+        setCurrencyRates(data.rates);
       })
       .catch((error) => console.error(error));
   }, []);
+
 
     
   const calculateResult = (currency, amount) => {
