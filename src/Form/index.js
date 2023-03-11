@@ -9,37 +9,29 @@ import {
   FormFieldSelect,
 } from "./styled";
 import { useState, useEffect } from "react";
-
-
+import useRatesData from "./useRatesData";
 
 const Form = () => {
   const [currency, setCurrency] = useState("");
   const [amount, setAmount] = useState("");
   const [currencies, setCurrencies] = useState([]);
   const [result, setResult] = useState();
-  const [currencyRates, setCurrencyRates] = useState({});
+
+  const currencyRates = useRatesData();
 
   const onFormSubmit = (event) => {
     event.preventDefault();
     calculateResult(currency, amount);
   };
 
-  const API_URL = "https://api.exchangerate.host/latest?base=PLN";
-
   useEffect(() => {
-    fetch(API_URL)
-      .then((response) => response.json())
-      .then((data) => {
-        const currencyNames = Object.keys(data.rates);
-        setCurrencies(currencyNames);
-        setCurrency(currencyNames[0]);
-        setCurrencyRates(data.rates);
-      })
-      .catch((error) => console.error(error));
-  }, []);
+    if (currencyRates) {
+      const currencyNames = Object.keys(currencyRates);
+      setCurrencies(currencyNames);
+      setCurrency(currencyNames[0]);
+    }
+  }, [currencyRates]);
 
-
-    
   const calculateResult = (currency, amount) => {
     const rate = currencyRates[currency];
     setResult({
@@ -85,7 +77,7 @@ const Form = () => {
         <FormResult>
           {result !== undefined && (
             <strong>
-              {amount} PLN =  {result.targetAmount.toFixed(2)} {result.currency}
+              {amount} PLN = {result.targetAmount.toFixed(2)} {result.currency}
             </strong>
           )}
         </FormResult>
