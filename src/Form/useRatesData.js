@@ -8,25 +8,29 @@ const useRatesData = () => {
   const API_URL = "https://api.exchangerate.host/latest?base=PLN";
 
   useEffect(() => {
-    fetch(API_URL)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Error fetching data");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setRatesData({
-          state: "success",
-          rates: data.rates,
-          date: data.date,
+    const fetchRates = () => {
+      fetch(API_URL)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+          return response.json();
+        })
+        .then(({ rates, date }) => {
+          setRatesData({
+            state: "success",
+            rates,
+            date,
+          });
+        })
+        .catch(() => {
+          setRatesData({
+            state: "error",
+          });
         });
-      })
-      .catch(() => {
-        setRatesData({
-          state: "error",
-        });
-      });
+    };
+  
+    setTimeout(fetchRates, 2000);
   }, []);
 
   return ratesData;
