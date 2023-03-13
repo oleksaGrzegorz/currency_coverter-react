@@ -27,15 +27,15 @@ const Form = () => {
   };
 
   useEffect(() => {
-    if (ratesData) {
-      const currencyNames = Object.keys(ratesData);
+    if (ratesData.state === "success") {
+      const currencyNames = Object.keys(ratesData.rates);
       setCurrencies(currencyNames);
       setCurrency(currencyNames[0]);
     }
   }, [ratesData]);
 
   const calculateResult = (currency, amount) => {
-    const rate = ratesData[currency];
+    const rate = ratesData.rates[currency];
     setResult({
       targetAmount: amount * rate,
       currency,
@@ -47,7 +47,9 @@ const Form = () => {
       {ratesData.state === "loading" ? (
         <Loading>Ładuję kursy walut z Europejskiego Banku Centralnego.</Loading>
       ) : ratesData.state === "error" ? (
-        <Error>Strona nie działa. Sprawdź połączenie internetowe.</Error>
+        <Error>
+          Strona nie działa. Sprawdź połączenie internetowe.
+        </Error>
       ) : (
         <>
           <Fieldset>
