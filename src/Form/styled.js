@@ -62,3 +62,13 @@ export const FormFieldInput = styled.input`
   height: 50px;
   background-color: ${({ theme }) => theme.color.white};
 `;
+
+export const Loading = styled.p`
+  color: red;
+  text-align: center;
+`;
+
+export const Error = styled.p`
+  color: red;
+  text-align: center;
+`;
