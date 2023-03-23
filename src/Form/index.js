@@ -9,6 +9,7 @@ import {
   FormFieldSelect,
   Loading,
   Error,
+  Info,
 } from "./styled";
 import { useState, useEffect } from "react";
 import useRatesData from "./useRatesData";
@@ -47,9 +48,7 @@ const Form = () => {
       {ratesData.state === "loading" ? (
         <Loading>Ładuję kursy walut z Europejskiego Banku Centralnego.</Loading>
       ) : ratesData.state === "error" ? (
-        <Error>
-          Strona nie działa. Sprawdź połączenie internetowe.
-        </Error>
+        <Error>Strona nie działa. Sprawdź połączenie internetowe.</Error>
       ) : (
         <>
           <Fieldset>
@@ -92,6 +91,12 @@ const Form = () => {
                 </strong>
               )}
             </FormResult>
+            <Info>
+              <strong>
+                Currency exchange rates fetched from the European Central Bank,{" "}
+                date: {ratesData.date}
+              </strong>
+            </Info>
           </Fieldset>
           <Button>Convert</Button>
         </>

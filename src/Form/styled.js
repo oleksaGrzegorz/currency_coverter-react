@@ -70,3 +70,8 @@ export const Loading = styled.h1`
 export const Error = styled.h1`
   text-align: center;
 `;
+
+export const Info = styled.p`
+  text-align: center;
+  color: darkblue;
+`;
